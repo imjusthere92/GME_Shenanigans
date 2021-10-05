@@ -1,0 +1,76 @@
+Fail to deliver idea 
+
+Step 1 - get the data
+
+Comparisons - 
+
+Compare FTD to  Price movement of stock
+		Daily volume 
+		Daily/overall float data 
+		
+
+Compare FTD data of 
+		Meme stocks (GME, AMC, etc)
+		Volatile stocks (TSLA, Oil Stocks, Airlines, Shopify, QSR)
+		Regular Stocks (AAPL, MSFT, JPMorgan, etc) 
+
+
+Hypothesises 
+On days with more volatility (ie difference between daily high and low) there will be more Fails to Deliver 
+On days with more volume - there will be more FTDs. Less volume? Less FTDs.
+Expecting stocks like TSLA to have more relationship or FTD stats  
+
+
+normalizing - pandas normalization 
+scaling - min/max scaler 
+multiple y axis 
+
+
+What is an FTD?
+Objective Slide - correlate FTD quanity with volume closing price and daily changes 
+			find out if there's any actual correlation between any of them
+Inital Data Anaylsis 
+		Comparing "meme" stocks to less volatile, and volatile, stocks 
+		
+Data Gathering - SEC Website, IEX API, Yahoo Finance API 
+Data Cleanup/Exploration - 
+	learn how to parse SEC data files and clean them 
+	included sorting by CUSIP as opposed to Symbol 
+
+	merge IEX data and SEC data 
+
+	figured out how to sort the SEC data files to only pull the FTD data we wanted 
+	
+
+
+	after doing initial data analysis (correlation on the 12 picked stock tickers) no data was standing out
+	sorted data and looked at the 12 stock tickers different ways for something that stuck out 
+	GME, AMC, and SPCE stuck out as the only stocks that posted more than 1% FTDs of the float of each stock 
+	So, how to find more stocks that posted high amounts of fails? Since randomly picking stocks and searching 
+	was unlikely to find outliers by searching by Ticker...
+	Needed to figure out how to search and sort by result instead of by ticker and THEN sorting. 
+	First, needed a list of tickers on the market. How do you find a list of ALL tickers on the market? 
+	Turns out, already had one - the SEC data files. The data files contained ALL symbols on the market 
+	that even posted any FTDs, and had their CUSIP numbers attached to the symbol. 
+	So - sort the SEC file list and pull all Symbols and CUSIP numbers. Clear duplicates and drop any null rows. 
+	Now there is a list of 12,000+ stock symbols and their CUSIP numbers that all will have some FTD to them
+	
+	Use list as reference to "parse" the market and pull all relevant data needed to sort. 
+	What was I looking for? Any stocks that posted relevant quantities of FTDs, relative to their float, in the past
+	year of trading 
+	Decide any stock that has 1% or more of their float fail to deliver, is a relevant stat point
+	Find out IEX stopped posting float data in their data files in Dec2020, and 
+
+
+
+
+
+	
+
+	
+		
+
+
+
+
+
